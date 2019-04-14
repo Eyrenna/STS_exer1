@@ -34,4 +34,8 @@ public class ServeiAlumnat {
 		}
 	}
 	
+	public RepositoriAlumnes getRepo() {
+		return repo;
+	}
+	
 }
