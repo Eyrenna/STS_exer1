@@ -1,13 +1,22 @@
 package org.formacio.component;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ServeiAlumnat {
 
-	@Autowired
+	
 	private RepositoriAlumnes repo;
+	
+	@Autowired
+	public void init(RepositoriAlumnes repo) {
+		this.repo = repo;
+		repo.altaAlumne(1, "Antonia");
+		repo.altaAlumne(2, "Joan");
+	}
 	
 	/**
 	 * ha de donar d'alta a la base de dades d'alumnes l'alumne indicat amb 
@@ -21,8 +30,8 @@ public class ServeiAlumnat {
 		}
 		else {
 			repo.altaAlumne(id, alumne);
+			return true;
 		}
-		return true;
 	}
 	
 }
